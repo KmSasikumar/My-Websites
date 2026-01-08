@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alphabet Chart</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: auto;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 30px; /* Increased padding for better spacing */
+    text-align: center;
+    font-size: 24px; /* Set the font size to 24px */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+  <h2>Alphabet Chart</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Capital</th>
+        <th>Small</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-letter="A">A</td>
+        <td data-letter="a">a</td>
+      </tr>
+      <tr>
+        <td data-letter="B">B</td>
+        <td data-letter="b">b</td>
+      </tr>
+      <tr>
+        <td data-letter="C">C</td>
+        <td data-letter="c">c</td>
+      </tr>
+      <tr>
+        <td data-letter="D">D</td>
+        <td data-letter="d">d</td>
+      </tr>
+      <tr>
+        <td data-letter="E">E</td>
+        <td data-letter="e">e</td>
+      </tr>
+      <tr>
+        <td data-letter="F">F</td>
+        <td data-letter="f">f</td>
+      </tr>
+      <tr>
+        <td data-letter="G">G</td>
+        <td data-letter="g">g</td>
+      </tr>
+      <tr>
+        <td data-letter="H">H</td>
+        <td data-letter="h">h</td>
+      </tr>
+      <tr>
+        <td data-letter="I">I</td>
+        <td data-letter="i">i</td>
+      </tr>
+      <tr>
+        <td data-letter="J">J</td>
+        <td data-letter="j">j</td>
+      </tr>
+      <tr>
+        <td data-letter="K">K</td>
+        <td data-letter="k">k</td>
+      </tr>
+      <tr>
+        <td data-letter="L">L</td>
+        <td data-letter="l">l</td>
+      </tr>
+      <tr>
+        <td data-letter="M">M</td>
+        <td data-letter="m">m</td>
+      </tr>
+      <tr>
+        <td data-letter="N">N</td>
+        <td data-letter="n">n</td>
+      </tr>
+      <tr>
+        <td data-letter="O">O</td>
+        <td data-letter="o">o</td>
+      </tr>
+      <tr>
+        <td data-letter="P">P</td>
+        <td data-letter="p">p</td>
+      </tr>
+      <tr>
+        <td data-letter="Q">Q</td>
+        <td data-letter="q">q</td>
+      </tr>
+      <tr>
+        <td data-letter="R">R</td>
+        <td data-letter="r">r</td>
+      </tr>
+      <tr>
+        <td data-letter="S">S</td>
+        <td data-letter="s">s</td>
+      </tr>
+      <tr>
+        <td data-letter="T">T</td>
+        <td data-letter="t">t</td>
+      </tr>
+      <tr>
+        <td data-letter="U">U</td>
+        <td data-letter="u">u</td>
+      </tr>
+      <tr>
+        <td data-letter="V">V</td>
+        <td data-letter="v">v</td>
+      </tr>
+      <tr>
+        <td data-letter="W">W</td>
+        <td data-letter="w">w</td>
+      </tr>
+      <tr>
+        <td data-letter="X">X</td>
+        <td data-letter="x">x</td>
+      </tr>
+      <tr>
+        <td data-letter="Y">Y</td>
+        <td data-letter="y">y</td>
+      </tr>
+      <tr>
+        <td data-letter="Z">Z</td>
+        <td data-letter="z">z</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const imageUrls = {
+      A: 'https://i.postimg.cc/T18ZRPkH/download.jpg',
+      a: 'https://i.postimg.cc/mrJnwDG2/download.jpg',
+      B: 'https://i.postimg.cc/zGP2zBvS/download.jpg',
+      b: 'https://i.postimg.cc/tCB2kT3Q/download.jpg',
+      C: 'https://i.postimg.cc/x17gr4p6/download.jpg',
+      c: 'https://i.postimg.cc/jd34N1TR/images.jpg',
+      D: 'https://i.postimg.cc/nzx4pb4G/download.jpg',
+      d: 'https://i.postimg.cc/ZnK6v8D9/download.jpg',
+      E: 'https://i.postimg.cc/bvcb9cBf/download.jpg',
+      e: 'https://i.postimg.cc/k4wbCVX7/images.jpg',
+      F: 'https://i.postimg.cc/T24KcvKN/download.jpg',
+      f: 'https://i.postimg.cc/L8M6y92D/download.jpg',
+      G: 'https://i.postimg.cc/0yfMDMDD/maxresdefault.jpg',
+      g: 'https://i.postimg.cc/PqJxD6tn/607ac3e7f13548c87f3cd62c6d03890b.jpg',
+      H: 'https://i.postimg.cc/dtnw98Ns/download.jpg',
+      h: 'https://i.postimg.cc/k4NkgmkJ/download.jpg',
+      I: 'https://i.postimg.cc/MHP3nKtS/download.jpg',
+      i: 'https://i.postimg.cc/nzT0WcyD/download.jpg',
+      J: 'https://i.postimg.cc/N0cDfHYX/download.jpg',
+      j: 'https://i.postimg.cc/N0cDfHYX/download.jpg',
+      K: 'https://i.postimg.cc/qvRCTcNq/download.jpg',
+      k: 'https://i.postimg.cc/wvh1V0Gf/download.png',
+    };
+
+    document.querySelectorAll('td').forEach(cell => {
+      cell.addEventListener('click', () => {
+        if (cell.querySelector('img')) {
+          const letter = cell.getAttribute('data-letter');
+          cell.textContent = letter;
+        } else {
+          const letter = cell.getAttribute('data-letter');
+          const image = document.createElement('img');
+          image.src = imageUrls[letter];
+          cell.textContent = '';
+          cell.appendChild(image);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

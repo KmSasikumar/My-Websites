@@ -1,0 +1,300 @@
+<!DOCTPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Periodic Table</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  .periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-gap: 1px;
+    background-color: #ccc;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-weight: bold;
+    height: 60px;
+  }
+
+  .element.hydrogen { background-color: #a1e9ff; }
+  .element.noble-gas { background-color: #bde5ff; }
+  .element.alkali-metal { background-color: #ffbebe; }
+  .element.alkaline-earth-metal { background-color: #ffdbb3; }
+  .element.metalloid { background-color: #d2ffb3; }
+  .element.nonmetal { background-color: #baffba; }
+  .element.halogen { background-color: #ffd2b3; }
+  .element.transition-metal { background-color: #ffcccc; }
+  .element.post-transition-metal { background-color: #ffdede; }
+  .element.lanthanide { background-color: #ffb3ff; }
+  .element.actinide { background-color: #ffb3b3; }
+
+  /* Specific element positions */
+  /* Row 1 */
+  .element.h { grid-column: 1 / span 1; grid-row: 1 / span 1; }
+  .element.he { grid-column: 18 / span 1; grid-row: 1 / span 1; }
+  /* Row 2 */
+  .element.li { grid-column: 1 / span 1; grid-row: 2 / span 1; }
+  .element.be { grid-column: 2 / span 1; grid-row: 2 / span 1; }
+  .element.b { grid-column: 13 / span 1; grid-row: 2 / span 1; }
+  .element.c { grid-column: 14 / span 1; grid-row: 2 / span 1; }
+  .element.n { grid-column: 15 / span 1; grid-row: 2 / span 1; }
+  .element.o { grid-column: 16 / span 1; grid-row: 2 / span 1; }
+  .element.f { grid-column: 17 / span 1; grid-row: 2 / span 1; }
+  .element.ne { grid-column: 18 / span 1; grid-row: 2 / span 1; }
+  /* Row 3 */
+  .element.na { grid-column: 1 / span 1; grid-row: 3 / span 1; }
+  .element.mg { grid-column: 2 / span 1; grid-row: 3 / span 1; }
+  .element.al { grid-column: 13 / span 1; grid-row: 3 / span 1; }
+  .element.si { grid-column: 14 / span 1; grid-row: 3 / span 1; }
+  .element.p { grid-column: 15 / span 1; grid-row: 3 / span 1; }
+  .element.s { grid-column: 16 / span 1; grid-row: 3 / span 1; }
+  .element.cl { grid-column: 17 / span 1; grid-row: 3 / span 1; }
+  .element.ar { grid-column: 18 / span 1; grid-row: 3 / span 1; }
+  /* Row 4 */
+  .element.k { grid-column: 1 / span 1; grid-row: 4 / span 1; }
+  .element.ca { grid-column: 2 / span 1; grid-row: 4 / span 1; }
+  .element.sc { grid-column: 3 / span 1; grid-row: 4 / span 1; }
+  .element.ti { grid-column: 4 / span 1; grid-row: 4 / span 1; }
+  .element.v { grid-column: 5 / span 1; grid-row: 4 / span 1; }
+  .element.cr { grid-column: 6 / span 1; grid-row: 4 / span 1; }
+  .element.mn { grid-column: 7 / span 1; grid-row: 4 / span 1; }
+  .element.fe { grid-column: 8 / span 1; grid-row: 4 / span 1; }
+  .element.co { grid-column: 9 / span 1; grid-row: 4 / span 1; }
+  .element.ni { grid-column: 10 / span 1; grid-row: 4 / span 1; }
+  .element.cu { grid-column: 11 / span 1; grid-row: 4 / span 1; }
+  .element.zn { grid-column: 12 / span 1; grid-row: 4 / span 1; }
+  .element.ga { grid-column: 13 / span 1; grid-row: 4 / span 1; }
+  .element.ge { grid-column: 14 / span 1; grid-row: 4 / span 1; }
+  .element.as { grid-column: 15 / span 1; grid-row: 4 / span 1; }
+  .element.se { grid-column: 16 / span 1; grid-row: 4 / span 1; }
+  .element.br { grid-column: 17 / span 1; grid-row: 4 / span 1; }
+  .element.kr { grid-column: 18 / span 1; grid-row: 4 / span 1; }
+  /* Row 5 */
+  .element.rb { grid-column: 1 / span 1; grid-row: 5 / span 1; }
+  .element.sr { grid-column: 2 / span 1; grid-row: 5 / span 1; }
+  .element.y { grid-column: 3 / span 1; grid-row: 5 / span 1; }
+  .element.zr { grid-column: 4 / span 1; grid-row: 5 / span 1; }
+  .element.nb { grid-column: 5 / span 1; grid-row: 5 / span 1; }
+  .element.mo { grid-column: 6 / span 1; grid-row: 5 / span 1; }
+  .element.tc { grid-column: 7 / span 1; grid-row: 5 / span 1; }
+  .element.ru { grid-column: 8 / span 1; grid-row: 5 / span 1; }
+  .element.rh { grid-column: 9 / span 1; grid-row: 5 / span 1; }
+  .element.pd { grid-column: 10 / span 1; grid-row: 5 / span 1; }
+  .element.ag { grid-column: 11 / span 1; grid-row: 5 / span 1; }
+  .element.cd { grid-column: 12 / span 1; grid-row: 5 / span 1; }
+  .element.in { grid-column: 13 / span 1; grid-row: 5 / span 1; }
+  .element.sn { grid-column: 14 / span 1; grid-row: 5 / span 1; }
+  .element.sb { grid-column: 15 / span 1; grid-row: 5 / span 1; }
+  .element.te { grid-column: 16 / span 1; grid-row: 5 / span 1; }
+  .element.i { grid-column: 17 / span 1; grid-row: 5 / span 1; }
+  .element.xe { grid-column: 18 / span 1; grid-row: 5 / span 1; }
+  /* Row 6 */
+  .element.cs { grid-column: 1 / span 1; grid-row: 6 / span 1; }
+  .element.ba { grid-column: 2 / span 1; grid-row: 6 / span 1; }
+  .element.la { grid-column: 3 / span 1; grid-row: 9 / span 1; }
+  .element.ce { grid-column: 4 / span 1; grid-row: 9 / span 1; }
+  .element.pr { grid-column: 5 / span 1; grid-row: 9 / span 1; }
+  .element.nd { grid-column: 6 / span 1; grid-row: 9 / span 1; }
+  .element.pm { grid-column: 7 / span 1; grid-row: 9 / span 1; }
+  .element.sm { grid-column: 8 / span 1; grid-row: 9 / span 1; }
+  .element.eu { grid-column: 9 / span 1; grid-row: 9 / span 1; }
+  .element.gd { grid-column: 10 / span 1; grid-row: 9 / span 1; }
+  .element.tb { grid-column: 11 / span 1; grid-row: 9 / span 1; }
+  .element.dy { grid-column: 12 / span 1; grid-row: 9 / span 1; }
+  .element.ho { grid-column: 13 / span 1; grid-row: 9 / span 1; }
+  .element.er { grid-column: 14 / span 1; grid-row: 9 / span 1; }
+  .element.tm { grid-column: 15 / span 1; grid-row: 9 / span 1; }
+  .element.yb { grid-column: 16 / span 1; grid-row: 9 / span 1; }
+  .element.lu { grid-column: 17 / span 1; grid-row: 9 / span 1; }
+  .element.hf { grid-column: 4 / span 1; grid-row: 6 / span 1; }
+  .element.ta { grid-column: 5 / span 1; grid-row: 6 / span 1; }
+  .element.w { grid-column: 6 / span 1; grid-row: 6 / span 1; }
+  .element.re { grid-column: 7 / span 1; grid-row: 6 / span 1; }
+  .element.os { grid-column: 8 / span 1; grid-row: 6 / span 1; }
+  .element.ir { grid-column: 9 / span 1; grid-row: 6 / span 1; }
+  .element.pt { grid-column: 10 / span 1; grid-row: 6 / span 1; }
+  .element.au { grid-column: 11 / span 1; grid-row: 6 / span 1; }
+  .element.hg { grid-column: 12 / span 1; grid-row: 6 / span 1; }
+  .element.tl { grid-column: 13 / span 1; grid-row: 6 / span 1; }
+  .element.pb { grid-column: 14 / span 1; grid-row: 6 / span 1; }
+  .element.bi { grid-column: 15 / span 1; grid-row: 6 / span 1; }
+  .element.po { grid-column: 16 / span 1; grid-row: 6 / span 1; }
+  .element.at { grid-column: 17 / span 1; grid-row: 6 / span 1; }
+  .element.rn { grid-column: 18 / span 1; grid-row: 6 / span 1; }
+  /* Row 7 */
+  .element.fr { grid-column: 1 / span 1; grid-row: 7 / span 1; }
+  .element.ra { grid-column: 2 / span 1; grid-row: 7 / span 1; }
+  .element.ac { grid-column: 3 / span 1; grid-row: 10 / span 1; }
+  .element.th { grid-column: 4 / span 1; grid-row: 10 / span 1; }
+  .element.pa { grid-column: 5 / span 1; grid-row: 10 / span 1; }
+  .element.u { grid-column: 6 / span 1; grid-row: 10 / span 1; }
+  .element.np { grid-column: 7 / span 1; grid-row: 10 / span 1; }
+  .element.pu { grid-column: 8 / span 1; grid-row: 10 / span 1; }
+  .element.am { grid-column: 9 / span 1; grid-row: 10 / span 1; }
+  .element.cm { grid-column: 10 / span 1; grid-row: 10 / span 1; }
+  .element.bk { grid-column: 11 / span 1; grid-row: 10 / span 1; }
+  .element.cf { grid-column: 12 / span 1; grid-row: 10 / span 1; }
+  .element.es { grid-column: 13 / span 1; grid-row: 10 / span 1; }
+  .element.fm { grid-column: 14 / span 1; grid-row: 10 / span 1; }
+  .element.md { grid-column: 15 / span 1; grid-row: 10 / span 1; }
+  .element.no { grid-column: 16 / span 1; grid-row: 10 / span 1; }
+  .element.lr { grid-column: 17 / span 1; grid-row: 10 / span 1; }
+  .element.rf { grid-column: 4 / span 1; grid-row: 7 / span 1; }
+  .element.db { grid-column: 5 / span 1; grid-row: 7 / span 1; }
+  .element.sg { grid-column: 6 / span 1; grid-row: 7 / span 1; }
+  .element.bh { grid-column: 7 / span 1; grid-row: 7 / span 1; }
+  .element.hs { grid-column: 8 / span 1; grid-row: 7 / span 1; }
+  .element.mt { grid-column: 9 / span 1; grid-row: 7 / span 1; }
+  .element.ds { grid-column: 10 / span 1; grid-row: 7 / span 1; }
+  .element.rg { grid-column: 11 / span 1; grid-row: 7 / span 1; }
+  .element.cn { grid-column: 12 / span 1; grid-row: 7 / span 1; }
+  .element.nh { grid-column: 13 / span 1; grid-row: 7 / span 1; }
+  .element.fl { grid-column: 14 / span 1; grid-row: 7 / span 1; }
+  .element.mc { grid-column: 15 / span 1; grid-row: 7 / span 1; }
+  .element.lv { grid-column: 16 / span 1; grid-row: 7 / span 1; }
+  .element.ts { grid-column: 17 / span 1; grid-row: 7 / span 1; }
+  .element.og { grid-column: 18 / span 1; grid-row: 7 / span 1; }
+</style>
+</head>
+<body>
+<div class="periodic-table">
+  <div class="element hydrogen h">H</div>
+  <div class="element noble-gas he">He</div>
+  <div class="element alkali-metal li">Li</div>
+  <div class="element alkaline-earth-metal be">Be</div>
+  <div class="element metalloid b">B</div>
+  <div class="element nonmetal c">C</div>
+  <div class="element nonmetal n">N</div>
+  <div class="element nonmetal o">O</div>
+  <div class="element halogen f">F</div>
+  <div class="element noble-gas ne">Ne</div>
+  <div class="element alkali-metal na">Na</div>
+  <div class="element alkaline-earth-metal mg">Mg</div>
+  <div class="element post-transition-metal al">Al</div>
+  <div class="element metalloid si">Si</div>
+  <div class="element nonmetal p">P</div>
+  <div class="element nonmetal s">S</div>
+  <div class="element halogen cl">Cl</div>
+  <div class="element noble-gas ar">Ar</div>
+  <div class="element alkali-metal k">K</div>
+  <div class="element alkaline-earth-metal ca">Ca</div>
+  <div class="element transition-metal sc">Sc</div>
+  <div class="element transition-metal ti">Ti</div>
+  <div class="element transition-metal v">V</div>
+  <div class="element transition-metal cr">Cr</div>
+  <div class="element transition-metal mn">Mn</div>
+  <div class="element transition-metal fe">Fe</div>
+  <div class="element transition-metal co">Co</div>
+  <div class="element transition-metal ni">Ni</div>
+  <div class="element transition-metal cu">Cu</div>
+  <div class="element transition-metal zn">Zn</div>
+  <div class="element post-transition-metal ga">Ga</div>
+  <div class="element metalloid ge">Ge</div>
+  <div class="element metalloid as">As</div>
+  <div class="element nonmetal se">Se</div>
+  <div class="element halogen br">Br</div>
+  <div class="element noble-gas kr">Kr</div>
+  <div class="element alkali-metal rb">Rb</div>
+  <div class="element alkaline-earth-metal sr">Sr</div>
+  <div class="element transition-metal y">Y</div>
+  <div class="element transition-metal zr">Zr</div>
+  <div class="element transition-metal nb">Nb</div>
+  <div class="element transition-metal mo">Mo</div>
+  <div class="element transition-metal tc">Tc</div>
+  <div class="element transition-metal ru">Ru</div>
+  <div class="element transition-metal rh">Rh</div>
+  <div class="element transition-metal pd">Pd</div>
+  <div class="element transition-metal ag">Ag</div>
+  <div class="element transition-metal cd">Cd</div>
+  <div class="element post-transition-metal in">In</div>
+  <div class="element post-transition-metal sn">Sn</div>
+  <div class="element metalloid sb">Sb</div>
+  <div class="element metalloid te">Te</div>
+  <div class="element halogen i">I</div>
+  <div class="element noble-gas xe">Xe</div>
+  <div class="element alkali-metal cs">Cs</div>
+  <div class="element alkaline-earth-metal ba">Ba</div>
+  <div class="element lanthanide la">La</div>
+
+  <div class="element lanthanide la">La</div>
+  <div class="element lanthanide ce">Ce</div>
+  <div class="element lanthanide pr">Pr</div>
+  <div class="element lanthanide nd">Nd</div>
+  <div class="element lanthanide pm">Pm</div>
+  <div class="element lanthanide sm">Sm</div>
+  <div class="element lanthanide eu">Eu</div>
+  <div class="element lanthanide gd">Gd</div>
+  <div class="element lanthanide tb">Tb</div>
+  <div class="element lanthanide dy">Dy</div>
+  <div class="element lanthanide ho">Ho</div>
+  <div class="element lanthanide er">Er</div>
+  <div class="element lanthanide tm">Tm</div>
+  <div class="element lanthanide yb">Yb</div>
+  <div class="element lanthanide lu">Lu</div>
+  <div class="element transition-metal hf">Hf</div>
+  <div class="element transition-metal ta">Ta</div>
+  <div class="element transition-metal w">W</div>
+  <div class="element transition-metal re">Re</div>
+  <div class="element transition-metal os">Os</div>
+  <div class="element transition-metal ir">Ir</div>
+  <div class="element transition-metal pt">Pt</div>
+  <div class="element transition-metal au">Au</div>
+  <div class="element transition-metal hg">Hg</div>
+  <div class="element post-transition-metal tl">Tl</div>
+  <div class="element post-transition-metal pb">Pb</div>
+  <div class="element post-transition-metal bi">Bi</div>
+  <div class="element post-transition-metal po">Po</div>
+  <div class="element halogen at">At</div>
+  <div class="element noble-gas rn">Rn</div>
+  <div class="element alkali-metal fr">Fr</div>
+  <div class="element alkaline-earth-metal ra">Ra</div>
+  <div class="element actinide ac">Ac</div>
+  <div class="element actinide th">Th</div>
+  <div class="element actinide pa">Pa</div>
+  <div class="element actinide u">U</div>
+  <div class="element actinide np">Np</div>
+  <div class="element actinide pu">Pu</div>
+  <div class="element actinide am">Am</div>
+  <div class="element actinide cm">Cm</div>
+  <div class="element actinide bk">Bk</div>
+  <div class="element actinide cf">Cf</div>
+  <div class="element actinide es">Es</div>
+  <div class="element actinide fm">Fm</div>
+  <div class="element actinide md">Md</div>
+  <div class="element actinide no">No</div>
+  <div class="element actinide lr">Lr</div>
+  <div class="element transition-metal rf">Rf</div>
+  <div class="element transition-metal db">Db</div>
+  <div class="element transition-metal sg">Sg</div>
+  <div class="element transition-metal bh">Bh</div>
+  <div class="element transition-metal hs">Hs</div>
+  <div class="element transition-metal mt">Mt</div>
+  <div class="element transition-metal ds">Ds</div>
+  <div class="element transition-metal rg">Rg</div>
+  <div class="element transition-metal cn">Cn</div>
+  <div class="element post-transition-metal nh">Nh</div>
+  <div class="element post-transition-metal fl">Fl</div>
+  <div class="element post-transition-metal mc">Mc</div>
+  <div class="element post-transition-metal lv">Lv</div>
+  <div class="element post-transition-metal ts">Ts</div>
+  <div class="element noble-gas og">Og</div>
+</div>
+</body>
+</html>

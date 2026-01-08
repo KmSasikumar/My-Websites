@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .marks-card {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #333;
+        }
+        .marks-card th, .marks-card td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+        .marks-card th {
+            background-color: #f2f2f2;
+        }
+        .student-info, .marks-header {
+            background-color: #d9d9d9;
+        }
+        .total {
+            font-weight: bold;
+        }
+        .cgpa {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Student Marks Card</h1>
+    </div>
+    <table class="marks-card">
+        <tr class="student-info">
+            <th colspan="2">Student Information</th>
+        </tr>
+        <tr>
+            <td>Register No.</td>
+            <td>22BCE1xxx</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>xxxx</td>
+        </tr>
+        <tr>
+            <td>Program</td>
+            <td>B.Tech. - Computer Science and Engineering</td>
+        </tr>
+        <tr>
+            <td>School</td>
+            <td>School of Computing Science and Engineering (SCSE)</td>
+        </tr>
+        <tr class="marks-header">
+            <th colspan="2">Marks</th>
+        </tr>
+        <tr>
+            <th>Course Title</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>Fundamentals in AI & ML</td>
+            <td>S</td>
+        </tr>
+        <tr>
+            <td>Effective Technical Communication</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Calculus and Laplace Transforms</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Principles of Management and Organizational Behaviour</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Engineering Physics (Aug 2023)</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Environmental Sustainability</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Introduction to Problem Solving and Programming</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Differential And Difference Equations</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Digital Literacy</td>
+            <td>P</td>
+        </tr>
+        <tr>
+            <td>Engineering Chemistry</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Data Structures and Algorithms</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Electric Circuits and Systems</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>Applied Numerical Methods (Nov 2023)</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Project Exhibition – I</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Professional Communication Skills for Engineers</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Python Programming</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Applied Linear Algebra (Apr 2024)</td>
+            <td>S</td>
+        </tr>
+        <tr>
+            <td>The Bits and Bytes of Computer Networking</td>
+            <td>A</td>
+        </tr>
+        <tr class="total">
+            <td>Total Credits Earned</td>
+            <td>54.0</td>
+        </tr>
+    </table>
+    <div class="cgpa">
+        CGPA: <span id="cgpa"></span>
+    </div>
+    <script>
+        function calculateCGPA() {
+            const grades = {
+                'S': 10,
+                'A': 9,
+                'B': 8,
+                'C': 7,
+                'D': 6,
+                'E': 5,
+                'P': 4,
+                'F': 0
+            };
+            const courses = [
+                { credits: 4, grade: 'S' },
+                { credits: 2, grade: 'B' },
+                { credits: 4, grade: 'A' },
+                { credits: 3, grade: 'B' },
+                { credits: 4, grade: 'B' },
+                { credits: 2, grade: 'A' },
+                { credits: 4, grade: 'B' },
+                { credits: 3, grade: 'B' },
+                { credits: 1, grade: 'P' },
+                { credits: 4, grade: 'B' },
+                { credits: 4, grade: 'B' },
+                { credits: 4, grade: 'D' },
+                { credits: 3, grade: 'A' },
+                { credits: 1, grade: 'B' },
+                { credits: 1, grade: 'B' },
+                { credits: 3, grade: 'B' },
+                { credits: 3, grade: 'S' },
+                { credits: 4, grade: 'A' }
+            ];
+            let totalCredits = 0;
+            let totalGradePoints = 0;
+            courses.forEach(course => {
+                totalCredits += course.credits;
+                totalGradePoints += course.credits * grades[course.grade];
+            });
+            const cgpa = (totalGradePoints / totalCredits).toFixed(2);
+            document.getElementById('cgpa').innerText = cgpa;
+        }
+        window.onload = calculateCGPA;
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Management System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    header, footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+    }
+    nav {
+        background-color: #555;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+    nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .container {
+        padding: 20px;
+    }
+    .form-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="number"],
+    .form-container input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    .form-container select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+    .section {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Library Management System</h1>
+</header>
+
+<nav>
+    <a data-section="home">Home</a>
+    <a data-section="books">Books</a>
+    <a data-section="members">Members</a>
+    <a data-section="about">About</a>
+    <a data-section="contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="home" class="section">
+        <h2>Welcome to the Library Management System</h2>
+        <p>Manage your library efficiently with our comprehensive system.</p>
+    </section>
+
+    <section id="books" class="section">
+        <h2>Books</h2>
+        <div class="form-container">
+            <h3>Add New Book</h3>
+            <form>
+                <label for="bookTitle">Book Title:</label>
+                <input type="text" id="bookTitle" name="bookTitle" required>
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" required>
+
+                <label for="publishDate">Publish Date:</label>
+                <input type="date" id="publishDate" name="publishDate" required>
+
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre">
+                    <option value="fiction">Fiction</option>
+                    <option value="non-fiction">Non-fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                </select>
+
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="members" class="section">
+        <h2>Members</h2>
+        <div class="form-container">
+            <h3>Register New Member</h3>
+            <form>
+                <label for="memberName">Name:</label>
+                <input type="text" id="memberName" name="memberName" required>
+
+                <label for="memberEmail">Email:</label>
+                <input type="email" id="memberEmail" name="memberEmail" required>
+
+                <label for="memberID">Member ID:</label>
+                <input type="number" id="memberID" name="memberID" required>
+
+                <button type="submit">Register Member</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>This Library Management System is designed to help manage and track library resources efficiently.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us at <a href="mailto:sasi.support@librarysystem.com">sasi.support@librarysystem.com</a>.</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Library Management System</p>
+</footer>
+
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(this.dataset.section).style.display = 'block';
+        });
+    });
+
+    // Show the home section by default
+    document.getElementById('home').style.display = 'block';
+</script>
+
+</body>
+</html>

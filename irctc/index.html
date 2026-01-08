@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="irctc.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li onclick="loadSection('indian')">Indian</li>
+            <li onclick="loadSection('non-indian')">Non-Indian</li>
+            <li onclick="loadSection('guest')">Guest</li>
+        </ul>
+    </div>
+    <div class="content" id="content">
+        <button id="sidebarToggle">☰</button>
+        <div id="main-content">
+            <div class="login-container" id="indian-login">
+                <h2>Login</h2>
+                <form id="loginForm" onsubmit="validateLogin(event)">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p><a href="#" onclick="loadSection('indian-signup')">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="irctc.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Course Registration Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://i.postimg.cc/J0LfPKWr/images.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  .registration-form, .course-section, .teacher-section {
+    margin-bottom: 20px;
+  }
+  .registration-form h2, .course-section h2, .teacher-section h2 {
+    margin-bottom: 20px;
+  }
+  .registration-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .registration-form input[type="text"],
+  .registration-form input[type="email"],
+  .registration-form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  .registration-form .course-selection {
+    margin-bottom: 15px;
+  }
+  .registration-form .course-selection label {
+    font-weight: normal;
+  }
+  .registration-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  .course-section, .teacher-section {
+    display: none;
+  }
+  .course-section.active, .teacher-section.active {
+    display: block;
+  }
+  .back-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="registration-form">
+    <h2>VIT Course Registration</h2>
+    <form>
+      <label for="studentName">Name:</label>
+      <input type="text" id="studentName" name="studentName" required>
+      
+      <label for="studentEmail">Email:</label>
+      <input type="email" id="studentEmail" name="studentEmail" required>
+      
+      <label for="studentID">Student ID:</label>
+      <input type="text" id="studentID" name="studentID" pattern="\d{2}[A-Za-z]{3}\d{5}" title="Student ID must be in the format 22Bce11638" required>
+      
+      <div class="course-selection">
+        <label>Courses:</label>
+        <label><input type="checkbox" name="courses" value="math" onclick="showCourseSection('math')"> Probability and Statistics</label>
+        <label><input type="checkbox" name="courses" value="science" onclick="showCourseSection('science')"> Internet Web Programming</label>
+        <label><input type="checkbox" name="courses" value="dbms" onclick="showCourseSection('dbms')"> DBMS</label>
+        <label><input type="checkbox" name="courses" value="cys" onclick="showCourseSection('cys')"> CYS</label>
+      </div>
+      
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <div id="math" class="course-section">
+    <h2>Probability and Statistics</h2>
+    <p>This course covers topics in probability theory and statistical methods. Students will learn about random variables, probability distributions, hypothesis testing, and more.</p>
+    <button class="back-button" onclick="showTeacherSection('mathTeacher')">Next: Teacher</button>
+  </div>
+
+  <div id="science" class="course-section">
+    <h2>Internet Web Programming</h2>
+    <p>This course introduces students to web development technologies, including HTML, CSS, JavaScript, and web application frameworks. Students will create dynamic and responsive web pages.</p>
+    <button class="back-button" onclick="showTeacherSection('scienceTeacher')">Next: Teacher</button>
+  </div>
+
+  <div id="dbms" class="course-section">
+    <h2>DBMS</h2>
+    <p>This course focuses on database management systems. Students will learn about relational databases, SQL, database design, normalization, and transactions.</p>
+    <button class="back-button" onclick="showTeacherSection('dbmsTeacher')">Next: Teacher</button>
+  </div>
+
+  <div id="cys" class="course-section">
+    <h2>CYS</h2>
+    <p>This course explores cybersecurity principles and practices. Topics include network security, encryption, threat management, and ethical hacking.</p>
+    <button class="back-button" onclick="showTeacherSection('cysTeacher')">Next: Teacher</button>
+  </div>
+
+  <div id="mathTeacher" class="teacher-section">
+    <h2>Probability and Statistics Teacher</h2>
+    <p>Dr. Sumit som is an experienced professor in Probability and Statistics. She has a PhD in Applied Mathematics and over 10 years of teaching experience.</p>
+    <button class="back-button" onclick="goBackToCourses()">Back to Courses</button>
+  </div>
+
+  <div id="scienceTeacher" class="teacher-section">
+    <h2>Internet Web Programming Teacher</h2>
+    <p>Prof. Kommarsami specializes in Web Development and Internet Technologies. He has authored several books on JavaScript and web frameworks.</p>
+    <button class="back-button" onclick="goBackToCourses()">Back to Courses</button>
+  </div>
+
+  <div id="dbmsTeacher" class="teacher-section">
+    <h2>DBMS Teacher</h2>
+    <p>Dr. Velmurgan has a PhD in Computer Science and has been teaching Database Management Systems for over 15 years. he is known for her hands-on approach to teaching.</p>
+    <button class="back-button" onclick="goBackToCourses()">Back to Courses</button>
+  </div>
+
+  <div id="cysTeacher" class="teacher-section">
+    <h2>CYS Teacher</h2>
+    <p>Mr. Sajjad ahamed is a cybersecurity expert with over 10 years of experience in the field. He has worked with various organizations to enhance their security protocols.</p>
+    <button class="back-button" onclick="goBackToCourses()">Back to Courses</button>
+  </div>
+</div>
+
+<script>
+  function showCourseSection(courseId) {
+    // Hide all course sections
+    var sections = document.querySelectorAll('.course-section');
+    sections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+
+    // Show the selected course section
+    var selectedSection = document.getElementById(courseId);
+    if (selectedSection) {
+      selectedSection.classList.add('active');
+    }
+  }
+
+  function showTeacherSection(teacherId) {
+    // Hide all course sections
+    var courseSections = document.querySelectorAll('.course-section');
+    courseSections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+
+    // Show the selected teacher section
+    var selectedSection = document.getElementById(teacherId);
+    if (selectedSection) {
+      selectedSection.classList.add('active');
+    }
+  }
+
+  function goBackToCourses() {
+    // Hide all teacher sections
+    var teacherSections = document.querySelectorAll('.teacher-section');
+    teacherSections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+
+    // Show the registration form
+    var registrationForm = document.querySelector('.registration-form');
+    if (registrationForm) {
+      registrationForm.scrollIntoView();
+    }
+  }
+</script>
+
+</body>
+</html>
