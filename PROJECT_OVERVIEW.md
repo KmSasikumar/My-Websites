@@ -42,3 +42,10 @@ Use the "View Docs" links in the table above to navigate to the detailed documen
 *   **Flowcharts:** Explaining user journeys and logic.
 *   **Tables:** Detailing specific event handlers and state transitions.
 *   **Tech Breakdowns:** Explaining the "Why" behind the code.
+
+
+## 👨‍💻 Author
+**K. Sasi Kumar**
+* 🎓 VIT Bhopal University
+* 📧 Kommamani012@gmail.com
+* 📱 +91 8985037606
